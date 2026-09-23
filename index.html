@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plant Leaf Disease Detector</title>
+<script src="lib/tf.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1 id="t_title">🌿 Plant Leaf Disease Detector</h1>
+  <select id="lang" aria-label="Language"><option value="en">English</option><option value="ta">தமிழ்</option></select>
+</header>
+<main>
+  <div class="card">
+    <div class="row">
+      <div class="pick"><div class="btn" id="t_gallery">📁 Upload from gallery</div><input id="file" type="file" accept="image/*"></div>
+      <button id="camBtn" class="sec">📷 <span id="t_cam">Take photo</span></button>
+    </div>
+    <input id="capInput" type="file" accept="image/*" capture="environment" class="hidden">
+    <video id="video" playsinline autoplay muted></video>
+    <div class="row hidden" id="camCtl" style="margin-top:10px">
+      <button id="snap">📸 <span id="t_snap">Capture</span></button>
+      <button id="closeCam" class="sec"><span id="t_close">Cancel</span></button>
+    </div>
+    <img id="preview" alt="leaf preview">
+    <canvas id="work" width="224" height="224"></canvas>
+    <div class="row" style="margin-top:12px"><button id="analyze" disabled>🔍 <span id="t_analyze">Analyze leaf</span></button></div>
+    <p class="mute" id="modeNote"></p>
+  </div>
+
+  <div class="card hidden" id="result">
+    <div><span class="badge" id="conf"></span><span class="badge" id="ctype"></span></div>
+    <div class="mute" id="crop"></div>
+    <div class="res-title" id="dname"></div>
+    <div class="bar"><i id="confBar" style="width:0"></i></div>
+    <p id="lowConf" class="badge warn hidden"></p>
+    <div id="demoBox" class="hidden"></div>
+    <div id="treatWrap">
+      <h3 id="t_pest"></h3><div id="pests"></div>
+      <h3 id="t_prev"></h3><ul id="prev"></ul>
+      <div id="altWrap"><h3 id="t_alt"></h3><div id="alts"></div></div>
+    </div>
+    <p class="mute" id="t_disc"></p>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
